@@ -1,9 +1,8 @@
 const btnSave = document.getElementById("btnSave")
-const btnDelete = document.getElementById("btnDelete")
 const txtName = document.getElementById("inputName")
+const alertValidacionesTexto = document.getElementById("alertValidacionesTexto")
 
-let isValid = true;
-let nombre = 0;
+
 
 btnSave.addEventListener("click", function(event){
     event.preventDefault();
@@ -20,15 +19,11 @@ btnSave.addEventListener("click", function(event){
             txtName.style.border="solid red medium";
             alertValidacionesTexto.innerHTML = "El <strong>Nombre</strong> debe de contener al menos 3 caracteres.</br>";
             alertValidaciones.style.display="block";
-            isValid = false;
+            return false;
           }
 
-          localStorage.setItem("nombre",txtName);
+          localStorage.setItem("nombre",txtName.value);
 
-    if(txtName.value == null)
-    {
-        
-    }
 
 });
 
